@@ -1,3 +1,33 @@
 body {
   margin: 0;
 }
+
+.card {
+  box-sizing: border-box;
+  width: 200px;
+  background-image: url(../images/imac.jpeg);
+}
+
+.stars {
+  display: flex;
+
+  &__star {
+    padding: 8px;
+    background-image: url(../images/star.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+  }
+
+  &__star:not(:last-child) {
+    margin-right: 4px;
+  }
+
+  &--1 :first-child,
+  &--2 :nth-child(-n + 2),
+  &--3 :nth-child(-n + 3),
+  &--4 :nth-child(-n + 4),
+  &--5 :nth-child(-n + 5) {
+    background-image: url(../images/star-active.svg);
+  }
+}
