@@ -1,4 +1,23 @@
-body {
+$font-family-primary: Roboto;
+$color-secondary: rgba(97, 96, 112, 1);
+$color-main-accent: rgba(6, 11, 53, 1);
+$color-white: rgba(255, 255, 255, 1);
+$color-blue-accent: rgba(0, 172, 220, 1);
+$line-height-sm: 0.88rem;
+$line-height-md: 1rem;
+$line-height-lg: 1.13rem;
+$vertical-margin-sm: 0.25rem;
+$vertical-margin-md: 1rem;
+$vertical-margin-lg: 1.5rem;
+
+html {
+  font-family: $font-family-primary, sans-serif;
+  font-size: 16px;
+}
+
+body,
+h2,
+p {
   margin: 0;
 }
 
@@ -12,6 +31,75 @@ body {
     size: 160px 134px;
     repeat: no-repeat;
     position: center 33px;
+  }
+
+  &__title {  
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: $line-height-lg;
+    color: $color-main-accent;
+    margin-bottom: $vertical-margin-sm;
+  }
+
+  &__code {
+    font-size: 0.63rem;
+    line-height: $line-height-sm;
+    color: $color-secondary;
+    margin-bottom: $vertical-margin-md;
+  }
+
+  &__rating {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $vertical-margin-lg;
+  }
+
+  &__reviews {
+    font-size: 0.63rem;
+    line-height: $line-height-sm;
+    color: $color-main-accent;
+  }
+
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $vertical-margin-md;
+  }
+
+  &__price-label {
+    font-size: 0.75rem;
+    line-height: $line-height-lg;
+    color: $color-secondary;
+  }
+
+  &__price-value {
+    font-size: 1rem;
+    line-height: $line-height-lg;
+    font-weight: 700;
+    color: $color-main-accent;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    height: 40px;
+    background-color: $color-blue-accent;
+    font: {
+      weight: 700;
+      size: 0.88rem;
+    }
+    
+    line-height: $line-height-md;
+    color: $color-white;
+    border-radius: 5px;
+
+    &:hover {
+      color: $color-blue-accent;
+      background-color: $color-white;
+      border: 1px solid $color-blue-accent;
+    }
   }
 }
 
