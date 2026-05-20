@@ -3,16 +3,25 @@ $color-secondary: rgba(97, 96, 112, 1);
 $color-main-accent: rgba(6, 11, 53, 1);
 $color-white: rgba(255, 255, 255, 1);
 $color-blue-accent: rgba(0, 172, 220, 1);
-$line-height-sm: 0.88rem;
-$line-height-md: 1rem;
-$line-height-lg: 1.13rem;
-$vertical-margin-sm: 0.25rem;
-$vertical-margin-md: 1rem;
-$vertical-margin-lg: 1.5rem;
+$font-sm: 10px;
+$font-md: 12px;
+$font-lg: 14px;
+$font-default: 16px;
+$line-height-sm: 14px;
+$line-height-md: 16px;
+$line-height-lg: 18px;
+$vertical-margin-sm: 4px;
+$vertical-margin-md: 16px;
+$vertical-margin-lg: 24px;
+
+@mixin font-style($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
 
 html {
   font-family: $font-family-primary, sans-serif;
-  font-size: 16px;
+  font-size: $font-default;
 }
 
 body,
@@ -22,8 +31,7 @@ p {
 }
 
 .card {
-  padding: 17px;
-  padding-top: 207px;
+  padding: 207px 17px 17px;
   box-sizing: border-box;
   width: 200px;
   background: {
@@ -33,17 +41,17 @@ p {
     position: center 33px;
   }
 
-  &__title {  
+  &__title {
+    @include font-style($font-md, $line-height-lg);
+
     font-weight: 500;
-    font-size: 0.75rem;
-    line-height: $line-height-lg;
     color: $color-main-accent;
     margin-bottom: $vertical-margin-sm;
   }
 
   &__code {
-    font-size: 0.63rem;
-    line-height: $line-height-sm;
+    @include font-style($font-sm, $line-height-sm);
+
     color: $color-secondary;
     margin-bottom: $vertical-margin-md;
   }
@@ -55,8 +63,10 @@ p {
   }
 
   &__reviews {
-    font-size: 0.63rem;
-    line-height: $line-height-sm;
+    @include font-style($font-sm, $line-height-sm);
+
+    display: flex;
+    align-items: flex-end;
     color: $color-main-accent;
   }
 
@@ -67,31 +77,29 @@ p {
   }
 
   &__price-label {
-    font-size: 0.75rem;
-    line-height: $line-height-lg;
+    @include font-style($font-md, $line-height-lg);
+
     color: $color-secondary;
   }
 
   &__price-value {
-    font-size: 1rem;
-    line-height: $line-height-lg;
+    @include font-style($font-default, $line-height-lg);
+
     font-weight: 700;
     color: $color-main-accent;
   }
 
   &__button {
+    @include font-style($font-lg, $line-height-md);
+
+    font-weight: 700;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     height: 40px;
     background-color: $color-blue-accent;
-    font: {
-      weight: 700;
-      size: 0.88rem;
-    }
-    
-    line-height: $line-height-md;
     color: $color-white;
     border-radius: 5px;
 
@@ -108,21 +116,21 @@ p {
 
   &__star {
     padding: 8px;
-    background-image: url(../images/star.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 80%;
+    background: {
+      image: url(../images/star.svg);
+      repeat: no-repeat;
+      position: center;
+      size: 82%;
+    }
+
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
   }
 
-  &__star:not(:last-child) {
-    margin-right: 4px;
-  }
-
-  &--1 :first-child,
-  &--2 :nth-child(-n + 2),
-  &--3 :nth-child(-n + 3),
-  &--4 :nth-child(-n + 4),
-  &--5 :nth-child(-n + 5) {
-    background-image: url(../images/star-active.svg);
+  @for $i from 1 through 5 {
+    &--#{$i} :nth-child(-n + #{$i}) {
+      background-image: url(../images/star-active.svg);
+    }
   }
 }
