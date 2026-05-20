@@ -1,0 +1,6 @@
+@use '../utils/variables' as *;
+
+@mixin font-style($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
