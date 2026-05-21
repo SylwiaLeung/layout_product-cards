@@ -1,8 +1,6 @@
-@use '../utils/variables' as *;
-
 html {
-  font-family: $font-family-primary, sans-serif;
-  font-size: $font-default;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
 }
 
 body,

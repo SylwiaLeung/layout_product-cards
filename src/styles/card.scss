@@ -2,39 +2,43 @@
 @use '../utils/mixins' as *;
 
 .card {
-  padding: 207px 17px 17px;
+  padding: 32px 16px 16px;
+  border: 1px solid #f3f3f3;
+  border-radius: 5px;
   box-sizing: border-box;
   width: 200px;
-  background: {
-    image: url(../images/imac.jpeg);
-    size: 160px 134px;
-    repeat: no-repeat;
-    position: center 33px;
+
+  &__image {
+    display: block;
+    margin: 0 auto;
+    width: 160px;
+    height: 134px;
+    margin-bottom: 40px;
   }
 
   &__title {
-    @include font-style($font-md, $line-height-lg);
+    @include font-style(12px, 18px);
 
     font-weight: 500;
     color: $color-main-accent;
-    margin-bottom: $vertical-margin-sm;
+    margin-bottom: 4px;
   }
 
   &__code {
-    @include font-style($font-sm, $line-height-sm);
+    @include font-style(10px, 14px);
 
     color: $color-secondary;
-    margin-bottom: $vertical-margin-md;
+    margin-bottom: 16px;
   }
 
   &__rating {
     display: flex;
     justify-content: space-between;
-    margin-bottom: $vertical-margin-lg;
+    margin-bottom: 24px;
   }
 
   &__reviews {
-    @include font-style($font-sm, $line-height-sm);
+    @include font-style(10px, 14px);
 
     display: flex;
     align-items: flex-end;
@@ -44,24 +48,24 @@
   &__price {
     display: flex;
     justify-content: space-between;
-    margin-bottom: $vertical-margin-md;
+    margin-bottom: 16px;
   }
 
   &__price-label {
-    @include font-style($font-md, $line-height-lg);
+    @include font-style(12px, 18px);
 
     color: $color-secondary;
   }
 
   &__price-value {
-    @include font-style($font-default, $line-height-lg);
+    @include font-style(16px, 18px);
 
     font-weight: 700;
     color: $color-main-accent;
   }
 
   &__button {
-    @include font-style($font-lg, $line-height-md);
+    @include font-style(14px, 16px);
 
     font-weight: 700;
     box-sizing: border-box;
